@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://décor/tile_set_ground.tres" type="TileSet" id=1]
+[ext_resource path="res://décor/tile_set_pave.tres" type="TileSet" id=2]
+
+[node name="ground" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 96, 96 )
+format = 1
+
+[node name="pave" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 96, 10 )
+format = 1

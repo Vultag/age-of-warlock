@@ -1,0 +1,181 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Character/Eye_bot_blue.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Eye/eye_blink_blue/eye_blink_blue0000.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Eye/eye_blink_blue/eye_blink_blue0001.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/Eye/eye_blink_blue/eye_blink_blue0002.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/Eye/eye_blink_blue/eye_blink_blue0003.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/Eye/eye_blink_blue/eye_blink_blue0004.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/Eye/eye_blink_blue/eye_blink_blue0005.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/Eye/tentacules_blue/Tentacules_blue0000.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/Eye/tentacules_blue/Tentacules_blue0001.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/Eye/tentacules_blue/Tentacules_blue0002.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/Eye/tentacules_blue/Tentacules_blue0003.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/Eye/tentacules_blue/Tentacules_blue0004.png" type="Texture" id=12]
+[ext_resource path="res://Graphics/Eye/tentacules_blue/Tentacules_blue0005.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/Eye/tentacules_blue/Tentacules_blue0006.png" type="Texture" id=14]
+[ext_resource path="res://Graphics/Eye/tentacules_blue/Tentacules_blue0007.png" type="Texture" id=15]
+[ext_resource path="res://Graphics/Eye/tentacules_blue/Tentacules_blue0008.png" type="Texture" id=16]
+[ext_resource path="res://Graphics/interface/bar_vie/bar_vie.png" type="Texture" id=17]
+[ext_resource path="res://Graphics/interface/bar_vie/vie_blue.png" type="Texture" id=18]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=4]
+resource_name = "Eye_aim"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("eye_spr:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("eye_spr:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 3.6, 3.7, 3.8, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 3, 2, 1, 0, 0, 1, 2, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 5, -4 ), Vector2( 8, 6 ), Vector2( -6, 2 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 282.117
+
+[node name="offset_setup" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="offset_setup_2" type="Node2D" parent="."]
+position = Vector2( -4.992, 1.152 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Eye" type="KinematicBody2D" parent="offset_setup_2" groups=[
+"Character_blue",
+]]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="eye_spr" type="AnimatedSprite" parent="offset_setup_2/Eye"]
+frames = SubResource( 1 )
+animation = "idle"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tentacules" type="AnimatedSprite" parent="offset_setup_2/Eye/eye_spr"]
+show_behind_parent = true
+frames = SubResource( 2 )
+animation = "idle"
+frame = 4
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="barre_vie" type="AnimatedSprite" parent="offset_setup_2/Eye/eye_spr"]
+frames = SubResource( 3 )
+offset = Vector2( 3, -15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="vie" type="TextureProgress" parent="offset_setup_2/Eye/eye_spr/barre_vie"]
+margin_left = -5.0
+margin_top = -28.0
+margin_right = 35.0
+margin_bottom = 12.0
+value = 100.0
+texture_progress = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="offset_setup_2/Eye"]
+polygon = PoolVector2Array( 16, -5, 16, 4, 15, 4, 15, 7, 11, 11, 9, 12, 2, 12, -1, 11, -3, 10, -5, 5, -5, -2, -4, -5, -3, -7, -3, -11, 0, -12, 2, -13, 9, -13, 11, -12, 15, -8, 15, -5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="offset_setup_2/Eye"]
+anims/Eye_aim = SubResource( 4 )
+anims/eye_idle = SubResource( 5 )
+
+[node name="aim_check" type="Area2D" parent="offset_setup_2/Eye"]
+collision_layer = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="aim" type="CollisionShape2D" parent="offset_setup_2/Eye/aim_check"]
+position = Vector2( 286.734, 0 )
+shape = SubResource( 6 )
+
+[node name="shoot_point" type="Position2D" parent="offset_setup_2/Eye"]
+position = Vector2( 14.992, -1.152 )
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="body_entered" from="offset_setup_2/Eye/aim_check" to="offset_setup_2/Eye" method="_on_aim_check_body_entered"]
+[connection signal="body_exited" from="offset_setup_2/Eye/aim_check" to="offset_setup_2/Eye" method="_on_aim_check_body_exited"]

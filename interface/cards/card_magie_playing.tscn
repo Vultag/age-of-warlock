@@ -1,0 +1,134 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://interface/cards/card_magie_playing.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/interface/card_magic/fire/card_firel_playing.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/interface/card_magic/fireball/card_fireball_playingCopy_Frame1.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/interface/card_magic/fireball/card_fireball_playingCopy_Copy_Frame1.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/interface/card_magic/fireball/card_fireball_playingCopy_Copy_Copy_Frame1.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/interface/number/0.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/interface/number/1.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/interface/number/2.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/interface/number/3.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/interface/number/4.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/interface/number/5.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/interface/number/6.png" type="Texture" id=12]
+[ext_resource path="res://Graphics/interface/number/7.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/interface/number/8.png" type="Texture" id=14]
+[ext_resource path="res://Graphics/interface/number/9.png" type="Texture" id=15]
+[ext_resource path="res://Graphics/interface/card_magic/frost/card_frost_playingCopy_Frame1.png" type="Texture" id=16]
+[ext_resource path="res://Graphics/interface/card_magic/frostball/card_frostball_playingCopy_Copy_Copy_Frame1.png" type="Texture" id=17]
+[ext_resource path="res://Graphics/interface/card_magic/frostball/card_frostball_playingCopy_Copy_Frame1.png" type="Texture" id=18]
+[ext_resource path="res://Graphics/interface/card_magic/frostball/card_frostball_playingCopy_Frame1.png" type="Texture" id=19]
+[ext_resource path="res://Graphics/interface/card_magic/Shield/card_shield_playingCopy_Copy_Copy_Frame1.png" type="Texture" id=20]
+[ext_resource path="res://Graphics/interface/card_magic/Shield/card_shield_playingCopy_Frame1.png" type="Texture" id=21]
+[ext_resource path="res://Graphics/interface/card_magic/Shield/card_shield_playingCopy_Copy_Frame1.png" type="Texture" id=22]
+[ext_resource path="res://Graphics/interface/card_magic/Shield/card_mass_shield_playing.png" type="Texture" id=23]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "fire",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "fireball",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ) ],
+"loop": false,
+"name": "frostball",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "frost",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "mass_shield",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "shield",
+"speed": 0.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 42.5, 62.5 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "default",
+"speed": 0.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+} ]
+
+[node name="card_magie_playing" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="icon" type="AnimatedSprite" parent="."]
+position = Vector2( -1.52588e-05, 0 )
+frames = SubResource( 1 )
+animation = "mass_shield"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 7.33332 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="number_up_1" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -22.6667, 35.3333 )
+frames = SubResource( 3 )
+frame = 1
+
+[node name="number_up_2" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -14.6667, 35.3333 )
+frames = SubResource( 3 )
+
+[node name="number_up_3" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -6.66667, 35.3333 )
+frames = SubResource( 3 )
+
+[node name="number_down_1" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 5.33333, 46 )
+frames = SubResource( 3 )
+frame = 1
+
+[node name="number_down_2" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 13.3333, 46 )
+frames = SubResource( 3 )
+
+[node name="number_down_3" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 21.3333, 46 )
+frames = SubResource( 3 )
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

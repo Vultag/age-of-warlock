@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Magie/frost.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.517544, 1 )
+colors = PoolColorArray( 0.785919, 0.935936, 0.967285, 1, 0.680122, 0.93784, 0.967285, 1, 0.219608, 0.941176, 0.94902, 0.235294 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+flag_disable_z = true
+spread = 15.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.2
+angular_velocity = -4.63382e-25
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -30.0
+scale = 1.8
+scale_random = 1.0
+color_ramp = SubResource( 2 )
+
+[node name="frost" type="Particles2D"]
+position = Vector2( 20, 2 )
+z_index = 1
+z_as_relative = false
+amount = 800
+lifetime = 1.5
+local_coords = false
+process_material = SubResource( 3 )
+script = ExtResource( 1 )
+
+[node name="Ray_up" type="RayCast2D" parent="."]
+visible = false
+rotation = -1.74533
+cast_to = Vector2( 0, 200 )
+
+[node name="Ray_mid" type="RayCast2D" parent="."]
+visible = false
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 0 )
+
+[node name="Ray_down" type="RayCast2D" parent="."]
+visible = false
+rotation = -1.39626
+cast_to = Vector2( 0, 200 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Timer_quefree" type="Timer" parent="."]
+wait_time = 2.0
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer_quefree" to="." method="_on_Timer_quefree_timeout"]

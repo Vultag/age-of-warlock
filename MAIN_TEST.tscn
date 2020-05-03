@@ -1,0 +1,214 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://MAIN.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Décors/Décor_principal.png" type="Texture" id=2]
+[ext_resource path="res://décor/tile_set_donjon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://HUD.gd" type="Script" id=4]
+[ext_resource path="res://Card_playing.gd" type="Script" id=5]
+[ext_resource path="res://Card_borad.gd" type="Script" id=6]
+[ext_resource path="res://Graphics/interface/nombre_crystal.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/interface/number/0.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/interface/number/1.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/interface/number/2.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/interface/number/3.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/interface/number/4.png" type="Texture" id=12]
+[ext_resource path="res://Graphics/interface/number/5.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/interface/number/6.png" type="Texture" id=14]
+[ext_resource path="res://Graphics/interface/number/7.png" type="Texture" id=15]
+[ext_resource path="res://Graphics/interface/number/8.png" type="Texture" id=16]
+[ext_resource path="res://Graphics/interface/number/9.png" type="Texture" id=17]
+[ext_resource path="res://Graphics/interface/chest_open.png" type="Texture" id=18]
+[ext_resource path="res://Graphics/interface/nombre_crystalFrame1.png" type="Texture" id=19]
+[ext_resource path="res://Graphics/interface/Vie_Portal/Barre_vie_Portal_red.png" type="Texture" id=20]
+[ext_resource path="res://Graphics/interface/Vie_Portal/Barre_vie_Portal_blue.png" type="Texture" id=21]
+[ext_resource path="res://Graphics/interface/Vie_Portal/Vie_Portal_red.png" type="Texture" id=22]
+[ext_resource path="res://Graphics/interface/Vie_Portal/Vie_Portal_blue.png" type="Texture" id=23]
+[ext_resource path="res://Camera2D.gd" type="Script" id=24]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1038, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1163, 10 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": false,
+"name": "default",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "open",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "closed",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=5]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="world" type="Node"]
+script = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tile_map_ground" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -50 )
+
+[node name="CollisionShape2D" type="StaticBody2D" parent="tile_map_ground"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="hitbox_ground" type="CollisionShape2D" parent="tile_map_ground/CollisionShape2D"]
+position = Vector2( 949, 786 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="hitbox_top" type="CollisionShape2D" parent="tile_map_ground/CollisionShape2D"]
+position = Vector2( 927, 100 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 4 )
+
+[node name="Card_playing" type="Node2D" parent="HUD"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Card_borad" type="Node2D" parent="HUD"]
+position = Vector2( 0, 10 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="number_crystal" type="Sprite" parent="HUD"]
+position = Vector2( 900, 100 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="number_l1" type="AnimatedSprite" parent="HUD/number_crystal"]
+position = Vector2( -17, -7.99983 )
+frames = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="number_l2" type="AnimatedSprite" parent="HUD/number_crystal"]
+position = Vector2( -6, -7.99983 )
+frames = SubResource( 3 )
+animation = "off"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="number_l3" type="AnimatedSprite" parent="HUD/number_crystal"]
+position = Vector2( 5, -7.99983 )
+frames = SubResource( 3 )
+animation = "off"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="chest" type="AnimatedSprite" parent="HUD/number_crystal"]
+position = Vector2( 50.6667, -8.33317 )
+frames = SubResource( 4 )
+animation = "closed"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="HUD/number_crystal/chest"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HUD/number_crystal/chest/Area2D"]
+scale = Vector2( 1.6, 1.6 )
+shape = SubResource( 5 )
+
+[node name="life_portal_red" type="AnimatedSprite" parent="HUD"]
+position = Vector2( 290, 920 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="life" type="TextureProgress" parent="HUD/life_portal_red"]
+margin_left = -54.6
+margin_top = -15.6
+margin_right = 55.4
+margin_bottom = 16.4
+value = 100.0
+texture_progress = ExtResource( 22 )
+
+[node name="life_portal_blue" type="AnimatedSprite" parent="HUD"]
+position = Vector2( 1630, 920 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="life" type="TextureProgress" parent="HUD/life_portal_blue"]
+margin_left = -54.8
+margin_top = -15.8
+margin_right = 55.2
+margin_bottom = 16.2
+value = 100.0
+texture_progress = ExtResource( 23 )
+fill_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="mouse_entered" from="HUD/number_crystal/chest/Area2D" to="HUD" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="HUD/number_crystal/chest/Area2D" to="HUD" method="_on_Area2D_mouse_exited"]

@@ -1,0 +1,129 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://interface/cards/old/spectral_spearman/spearman_card_playing.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/interface/card_spearman_charge.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/interface/card_warrior_charging.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/interface/number/x.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/interface/number/0.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/interface/number/1.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/interface/number/2.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/interface/number/3.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/interface/number/4.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/interface/number/5.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/interface/number/6.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/interface/number/7.png" type="Texture" id=12]
+[ext_resource path="res://Graphics/interface/number/8.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/interface/number/9.png" type="Texture" id=14]
+
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "played",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "on",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 42.5, 62.5 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "on",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "on",
+"speed": 0.0
+} ]
+
+[node name="spearman_card_playing" type="Node2D"]
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="spearman_icon" type="AnimatedSprite" parent="."]
+position = Vector2( -1.52588e-005, 0 )
+frames = SubResource( 1 )
+animation = "played"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="charge" type="AnimatedSprite" parent="spearman_icon"]
+position = Vector2( -24, 32 )
+frames = SubResource( 2 )
+animation = "on"
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 7.33332 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="x" type="AnimatedSprite" parent="."]
+position = Vector2( -6, 56 )
+frames = SubResource( 4 )
+animation = "off"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="multiply_1d" type="AnimatedSprite" parent="."]
+position = Vector2( 4, 56 )
+frames = SubResource( 5 )
+animation = "off"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="multiply_2d" type="AnimatedSprite" parent="."]
+position = Vector2( 12, 56 )
+frames = SubResource( 5 )
+animation = "off"
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

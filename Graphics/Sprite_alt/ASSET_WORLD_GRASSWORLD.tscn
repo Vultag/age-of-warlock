@@ -1,0 +1,1035 @@
+[gd_scene load_steps=46 format=2]
+
+[ext_resource path="res://Sprites/ROADGRASS_WORLD_TURNDOWN(1).png" type="Texture" id=1]
+[ext_resource path="res://Sprites/GRASS_WORLD_(2).png" type="Texture" id=2]
+[ext_resource path="res://Sprites/TREE_WORLD_.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/GRASS_WORLD_(1).png" type="Texture" id=4]
+[ext_resource path="res://Sprites/TREE_WORLD.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/DIRT_WORLD_(1).png" type="Texture" id=6]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_CORNER_WORLD_(1)00000000.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_CORNER_WORLD_(1)00000001.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_CORNER_WORLD_(1)00000002.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_CORNER_WORLD_(1)00000003.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_CORNER_WORLD_(1)00000004.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_CORNER_WORLD_(1)00000005.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_CORNER_WORLD_(1)00000006.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_CORNER_WORLD_(1)00000007.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_CORNER_WORLD_(1)00000008.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_CORNER_WORLD_(1)00000009.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/ROADGRASS_WORLD_(1).png" type="Texture" id=17]
+[ext_resource path="res://Sprites/ROADGRASS_WORLD_TURN2DIRECTION(1).png" type="Texture" id=18]
+[ext_resource path="res://Sprites/ROADGRASS_WORLD_TURN(1).png" type="Texture" id=19]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_WORLD_(1)0000.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_WORLD_(1)0001.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_WORLD_(1)0002.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_WORLD_(1)0003.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_WORLD_(1)0004.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/SAND2SEA_1.0_/SAND2SEA_WORLD_(1)0005.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/SEA_1.0_/SEA_1_0.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/SEA_1.0_/SEA_1_1.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/SEA_1.0_/SEA_1_2.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/SEA_1.0_/SEA_1_3.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/SEA_1.0_/SEA_1_4.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/SEA_1.0_/SEA_1_5.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/SEA_1.0_/SEA_1_6.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/SEA_1.0_/SEA_1_7.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/SEA_1.0_/SEA_1_8.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/SEA_1.0_/SEA_1_9.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/SEA_1.0_/SEA_1_10.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/SEA_1.0_/SEA_1_11.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Dirt_GRASSWORLD.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/SAND_WORLD_(1).png" type="Texture" id=39]
+[ext_resource path="res://Sprites/TREE_1.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/DIRT2SAND_WORLD_(1).png" type="Texture" id=41]
+[ext_resource path="res://Sprites/DIRT2GRASS_WORLD_(1).png" type="Texture" id=42]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.5
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.5
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[node name="StaticBody2D" type="StaticBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Node" type="Node" parent="." index="0"]
+
+[node name="ROADGRASS_WORLD_TURNDOWN(1)" type="Sprite" parent="Node" index="0"]
+
+position = Vector2( 432, 192 )
+rotation = -1.56512
+texture = ExtResource( 1 )
+
+[node name="GRASS_WORLD_(2)" type="Sprite" parent="Node" index="1"]
+
+position = Vector2( 192, 144 )
+texture = ExtResource( 2 )
+
+[node name="TREE_WORLD_" type="Sprite" parent="Node" index="2"]
+
+position = Vector2( 647, 241 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 3 )
+
+[node name="GRASS_WORLD_(1)" type="Sprite" parent="Node" index="3"]
+
+position = Vector2( -240, 96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)2" type="Sprite" parent="Node" index="4"]
+
+position = Vector2( -48, 96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)3" type="Sprite" parent="Node" index="5"]
+
+position = Vector2( 48, 96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)4" type="Sprite" parent="Node" index="6"]
+
+position = Vector2( 144, 96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)5" type="Sprite" parent="Node" index="7"]
+
+position = Vector2( 216, 72 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)6" type="Sprite" parent="Node" index="8"]
+
+position = Vector2( 192, 144 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)7" type="Sprite" parent="Node" index="9"]
+
+position = Vector2( 120, 168 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)57" type="Sprite" parent="Node" index="10"]
+
+position = Vector2( 100, 182 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="TREE_WORLD_2_" type="Sprite" parent="Node" index="11"]
+
+position = Vector2( 4, 134 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="TREE_WORLD_2_2" type="Sprite" parent="Node" index="12"]
+
+position = Vector2( 100, 86 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="TREE_WORLD_2_3" type="Sprite" parent="Node" index="13"]
+
+position = Vector2( -44, 134 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="TREE_WORLD" type="Sprite" parent="Node" index="14"]
+
+position = Vector2( 4, 134 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="GRASS_WORLD_(1)8" type="Sprite" parent="Node" index="15"]
+
+position = Vector2( 48, 192 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)9" type="Sprite" parent="Node" index="16"]
+
+position = Vector2( 319, 186 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)10" type="Sprite" parent="Node" index="17"]
+
+position = Vector2( -94, 206 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)11" type="Sprite" parent="Node" index="18"]
+
+position = Vector2( -144, 192 )
+texture = ExtResource( 4 )
+
+[node name="DIRT_WORLD_(1)" type="Sprite" parent="Node/GRASS_WORLD_(1)11" index="0"]
+
+position = Vector2( 282, 48 )
+texture = ExtResource( 6 )
+
+[node name="GRASS_WORLD_(1)12" type="Sprite" parent="Node" index="19"]
+
+position = Vector2( -144, 96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)13" type="Sprite" parent="Node" index="20"]
+
+position = Vector2( -240, 192 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)14" type="Sprite" parent="Node" index="21"]
+
+position = Vector2( -240, 288 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)15" type="Sprite" parent="Node" index="22"]
+
+position = Vector2( -144, 288 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)16" type="Sprite" parent="Node" index="23"]
+
+position = Vector2( -48, 288 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)17" type="Sprite" parent="Node" index="24"]
+
+position = Vector2( 48, 288 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)28" type="Sprite" parent="Node" index="25"]
+
+position = Vector2( 240, 144 )
+scale = Vector2( 0.59375, 0.520833 )
+texture = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/GRASS_WORLD_(1)28" index="0"]
+
+position = Vector2( -86.3158, 415.68 )
+scale = Vector2( 0.991228, 0.94 )
+frames = SubResource( 1 )
+animation = "default"
+playing = true
+
+[node name="GRASS_WORLD_(1)29" type="Sprite" parent="Node" index="26"]
+
+position = Vector2( 336, 96 )
+texture = ExtResource( 4 )
+
+[node name="ROADGRASS_WORLD_(1)" type="Sprite" parent="Node" index="27"]
+
+position = Vector2( 218, 107 )
+scale = Vector2( 0.375, 0.1875 )
+texture = ExtResource( 17 )
+
+[node name="GRASS_WORLD_(1)30" type="Sprite" parent="Node" index="28"]
+
+position = Vector2( 432, 96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)31" type="Sprite" parent="Node" index="29"]
+
+position = Vector2( 432, 192 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)36" type="Sprite" parent="Node" index="30"]
+
+position = Vector2( 528, 192 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)37" type="Sprite" parent="Node" index="31"]
+
+position = Vector2( 504, 120 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)38" type="Sprite" parent="Node" index="32"]
+
+position = Vector2( 528, -2 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)39" type="Sprite" parent="Node" index="33"]
+
+position = Vector2( 528, -96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)40" type="Sprite" parent="Node" index="34"]
+
+position = Vector2( 432, -96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)41" type="Sprite" parent="Node" index="35"]
+
+position = Vector2( 432, 0 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)42" type="Sprite" parent="Node" index="36"]
+
+position = Vector2( 336, 0 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)43" type="Sprite" parent="Node" index="37"]
+
+position = Vector2( 240, 0 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)44" type="Sprite" parent="Node" index="38"]
+
+position = Vector2( 144, 0 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)45" type="Sprite" parent="Node" index="39"]
+
+position = Vector2( 144, 0 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)46" type="Sprite" parent="Node" index="40"]
+
+position = Vector2( 48, 0 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)47" type="Sprite" parent="Node" index="41"]
+
+position = Vector2( -48, 0 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)48" type="Sprite" parent="Node" index="42"]
+
+position = Vector2( -144, 0 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)49" type="Sprite" parent="Node" index="43"]
+
+position = Vector2( -240, 0 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)50" type="Sprite" parent="Node" index="44"]
+
+position = Vector2( -240, -96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)51" type="Sprite" parent="Node" index="45"]
+
+position = Vector2( -144, -96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)52" type="Sprite" parent="Node" index="46"]
+
+position = Vector2( -48, -96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)53" type="Sprite" parent="Node" index="47"]
+
+position = Vector2( 48, -96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)54" type="Sprite" parent="Node" index="48"]
+
+position = Vector2( 144, -96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)55" type="Sprite" parent="Node" index="49"]
+
+position = Vector2( 240, -96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)56" type="Sprite" parent="Node" index="50"]
+
+position = Vector2( 336, -96 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)22" type="Sprite" parent="Node" index="51"]
+
+position = Vector2( 48, 384 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)23" type="Sprite" parent="Node" index="52"]
+
+position = Vector2( -48, 384 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)24" type="Sprite" parent="Node" index="53"]
+
+position = Vector2( -144, 384 )
+texture = ExtResource( 4 )
+
+[node name="GRASS_WORLD_(1)25" type="Sprite" parent="Node" index="54"]
+
+position = Vector2( -240, 384 )
+texture = ExtResource( 4 )
+
+[node name="ROADGRASS_WORLD_(1)2" type="Sprite" parent="Node" index="55"]
+
+position = Vector2( 146, 93.5 )
+scale = Vector2( 1.04167, 1.05208 )
+texture = ExtResource( 17 )
+
+[node name="ROADGRASS_WORLD_(1)3" type="Sprite" parent="Node" index="56"]
+
+position = Vector2( 336, 96 )
+texture = ExtResource( 17 )
+
+[node name="ROADGRASS_WORLD_TURN2DIRECTION(1)" type="Sprite" parent="Node" index="57"]
+
+position = Vector2( 48.194, 95.767 )
+rotation = -3.14119
+texture = ExtResource( 18 )
+
+[node name="ROADGRASS_WORLD_TURN(1)" type="Sprite" parent="Node" index="58"]
+
+position = Vector2( 432, 96 )
+texture = ExtResource( 19 )
+
+[node name="Node" type="Node" parent="Node" index="59"]
+
+[node name="AnimatedSprite29" type="AnimatedSprite" parent="Node" index="60"]
+
+position = Vector2( 241, 360 )
+scale = Vector2( 0.5, 0.479167 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 8
+playing = true
+
+[node name="AnimatedSprite30" type="AnimatedSprite" parent="Node" index="61"]
+
+position = Vector2( 182.999, 314.5 )
+rotation = 1.56148
+scale = Vector2( 0.5, 0.479167 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 8
+playing = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+
+position = Vector2( 336, 240 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 9
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="." index="2"]
+
+position = Vector2( 432, 240 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 9
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="." index="3"]
+
+position = Vector2( 480, 240 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 8
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="." index="4"]
+
+position = Vector2( 528, 240 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 8
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="." index="5"]
+
+position = Vector2( 528, 288 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 7
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="." index="6"]
+
+position = Vector2( 480, 288 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 7
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="." index="7"]
+
+position = Vector2( 432, 288 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 6
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="." index="8"]
+
+position = Vector2( 384, 288 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 6
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite10" type="AnimatedSprite" parent="." index="9"]
+
+position = Vector2( 336, 288 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 5
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite11" type="AnimatedSprite" parent="." index="10"]
+
+position = Vector2( 288, 288 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 4
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite12" type="AnimatedSprite" parent="." index="11"]
+
+position = Vector2( 288, 240 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 4
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite13" type="AnimatedSprite" parent="." index="12"]
+
+position = Vector2( 379, 320 )
+scale = Vector2( 1.04167, 1.02083 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 4
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite14" type="AnimatedSprite" parent="." index="13"]
+
+position = Vector2( 336, 336 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 3
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite15" type="AnimatedSprite" parent="." index="14"]
+
+position = Vector2( 145, 337 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 2
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite16" type="AnimatedSprite" parent="." index="15"]
+
+position = Vector2( 432, 336 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 2
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite17" type="AnimatedSprite" parent="." index="16"]
+
+position = Vector2( 480, 336 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 2
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite18" type="AnimatedSprite" parent="." index="17"]
+
+position = Vector2( 528, 336 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 1
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite19" type="AnimatedSprite" parent="." index="18"]
+
+position = Vector2( 528, 384 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 1
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite20" type="AnimatedSprite" parent="." index="19"]
+
+position = Vector2( 480, 384 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 1
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite21" type="AnimatedSprite" parent="." index="20"]
+
+position = Vector2( 115, 368 )
+frames = SubResource( 3 )
+animation = "default"
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite22" type="AnimatedSprite" parent="." index="21"]
+
+position = Vector2( 129, 412 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 11
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite23" type="AnimatedSprite" parent="." index="22"]
+
+position = Vector2( 145, 375 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 10
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite24" type="AnimatedSprite" parent="." index="23"]
+
+position = Vector2( 154, 404 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 10
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite25" type="AnimatedSprite" parent="." index="24"]
+
+position = Vector2( 238, 405 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 9
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite26" type="AnimatedSprite" parent="." index="25"]
+
+position = Vector2( 196, 407 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 8
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite27" type="AnimatedSprite" parent="." index="26"]
+
+position = Vector2( 240, 288 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 7
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite28" type="AnimatedSprite" parent="." index="27"]
+
+position = Vector2( 240, 240 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 7
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="." index="28"]
+
+position = Vector2( 384, 240 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 8
+playing = true
+_sections_unfolded = [ "Material" ]
+
+[node name="Dirt_GRASSWORLD" type="Sprite" parent="." index="29"]
+
+position = Vector2( 480, 96 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD2" type="Sprite" parent="." index="30"]
+
+position = Vector2( 528, 96 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD3" type="Sprite" parent="." index="31"]
+
+position = Vector2( 576, 96 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD4" type="Sprite" parent="." index="32"]
+
+position = Vector2( 576, 144 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD5" type="Sprite" parent="." index="33"]
+
+position = Vector2( 528, 144 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD6" type="Sprite" parent="." index="34"]
+
+position = Vector2( 528, 48 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD7" type="Sprite" parent="." index="35"]
+
+position = Vector2( 480, 48 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD8" type="Sprite" parent="." index="36"]
+
+position = Vector2( 576, 48 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD9" type="Sprite" parent="." index="37"]
+
+position = Vector2( 144, 240 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD18" type="Sprite" parent="." index="38"]
+
+position = Vector2( 96, 240 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD10" type="Sprite" parent="." index="39"]
+
+position = Vector2( 180, 204 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD11" type="Sprite" parent="." index="40"]
+
+position = Vector2( 240, 192 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD12" type="Sprite" parent="." index="41"]
+
+position = Vector2( 288, 192 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD13" type="Sprite" parent="." index="42"]
+
+position = Vector2( 132, 204 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD14" type="Sprite" parent="." index="43"]
+
+position = Vector2( 132, 252 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD15" type="Sprite" parent="." index="44"]
+
+position = Vector2( 96, 192 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD16" type="Sprite" parent="." index="45"]
+
+position = Vector2( 156, 205 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD19" type="Sprite" parent="." index="46"]
+
+position = Vector2( 156, 230 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD20" type="Sprite" parent="." index="47"]
+
+position = Vector2( 133, 228 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD21" type="Sprite" parent="." index="48"]
+
+position = Vector2( 179, 225 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD22" type="Sprite" parent="." index="49"]
+
+position = Vector2( 185, 197 )
+scale = Vector2( 0.4375, 0.541666 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD23" type="Sprite" parent="." index="50"]
+
+position = Vector2( 182, 184 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD24" type="Sprite" parent="." index="51"]
+
+position = Vector2( 157, 228 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD25" type="Sprite" parent="." index="52"]
+
+position = Vector2( 179, 249 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD26" type="Sprite" parent="." index="53"]
+
+position = Vector2( 179, 249 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD17" type="Sprite" parent="." index="54"]
+
+position = Vector2( 152, 253 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD27" type="Sprite" parent="." index="55"]
+
+position = Vector2( 156, 252 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD28" type="Sprite" parent="." index="56"]
+
+position = Vector2( 112, 226 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD29" type="Sprite" parent="." index="57"]
+
+position = Vector2( 204, 184 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD30" type="Sprite" parent="." index="58"]
+
+position = Vector2( 202, 208 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="Dirt_GRASSWORLD31" type="Sprite" parent="." index="59"]
+
+position = Vector2( 201, 228 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 38 )
+
+[node name="SAND_WORLD_(1)" type="Sprite" parent="." index="60"]
+
+position = Vector2( 293, 309 )
+scale = Vector2( 0.236979, 0.257813 )
+texture = ExtResource( 39 )
+
+[node name="SAND_WORLD_(1)2" type="Sprite" parent="." index="61"]
+
+position = Vector2( 207, 295 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="SAND_WORLD_(1)3" type="Sprite" parent="." index="62"]
+
+position = Vector2( 289, 311 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="SAND_WORLD_(1)4" type="Sprite" parent="." index="63"]
+
+position = Vector2( 222, 323 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="SAND_WORLD_(1)5" type="Sprite" parent="." index="64"]
+
+position = Vector2( 264, 320 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="SAND_WORLD_(1)10" type="Sprite" parent="." index="65"]
+
+position = Vector2( 279, 291 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="SAND_WORLD_(1)11" type="Sprite" parent="." index="66"]
+
+position = Vector2( 207, 265 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="SAND_WORLD_(1)12" type="Sprite" parent="." index="67"]
+
+position = Vector2( 265, 315 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="SAND_WORLD_(1)13" type="Sprite" parent="." index="68"]
+
+position = Vector2( 244, 324 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="SAND_WORLD_(1)6" type="Sprite" parent="." index="69"]
+
+position = Vector2( 192, 288 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="TREE_1" type="Sprite" parent="SAND_WORLD_(1)6" index="0"]
+
+position = Vector2( 98.0426, 0 )
+scale = Vector2( 0.72008, 0.641156 )
+texture = ExtResource( 40 )
+
+[node name="SAND_WORLD_(1)7" type="Sprite" parent="." index="70"]
+
+position = Vector2( 278, 353 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="SAND_WORLD_(1)8" type="Sprite" parent="." index="71"]
+
+position = Vector2( 214, 323 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="SAND_WORLD_(1)14" type="Sprite" parent="." index="72"]
+
+position = Vector2( 240, 288 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="TREE_1" type="Sprite" parent="SAND_WORLD_(1)14" index="0"]
+
+position = Vector2( 0, -48 )
+texture = ExtResource( 40 )
+
+[node name="SAND_WORLD_(1)15" type="Sprite" parent="." index="73"]
+
+position = Vector2( 384, 528 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="DIRT2SAND_WORLD_(1)" type="Sprite" parent="SAND_WORLD_(1)15" index="0"]
+
+position = Vector2( 0, 94.0408 )
+texture = ExtResource( 41 )
+
+[node name="DIRT2SAND_WORLD_(1)" type="Sprite" parent="SAND_WORLD_(1)15/DIRT2SAND_WORLD_(1)" index="0"]
+
+position = Vector2( 98.0425, 0 )
+texture = ExtResource( 41 )
+
+[node name="SAND_WORLD_(1)9" type="Sprite" parent="." index="74"]
+
+position = Vector2( 237, 259 )
+scale = Vector2( 0.489583, 0.510417 )
+texture = ExtResource( 39 )
+
+[node name="DIRT_WORLD_(1)" type="Sprite" parent="SAND_WORLD_(1)9" index="0"]
+
+position = Vector2( 0, -99.9183 )
+texture = ExtResource( 6 )
+
+[node name="TREE_WORLD_" type="Sprite" parent="." index="75"]
+
+position = Vector2( 336.5, 356 )
+scale = Vector2( 0.34375, 0.4375 )
+texture = ExtResource( 3 )
+
+[node name="SAND_WORLD_(1)16" type="Sprite" parent="." index="76"]
+
+position = Vector2( 432, 528 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 39 )
+
+[node name="SAND_WORLD_(1)17" type="Sprite" parent="." index="77"]
+
+position = Vector2( 480, 528 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 39 )
+
+[node name="DIRT2SAND_WORLD_(1)" type="Sprite" parent="." index="78"]
+
+position = Vector2( 480, 576 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 41 )
+
+[node name="DIRT_WORLD_(1)" type="Sprite" parent="." index="79"]
+
+position = Vector2( 384, 624 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="DIRT_WORLD_(1)2" type="Sprite" parent="." index="80"]
+
+position = Vector2( 432, 624 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="DIRT_WORLD_(1)3" type="Sprite" parent="." index="81"]
+
+position = Vector2( 480, 624 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="DIRT2GRASS_WORLD_(1)" type="Sprite" parent="." index="82"]
+
+position = Vector2( 384, 672 )
+rotation = -3.13323
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 42 )
+
+[node name="DIRT2GRASS_WORLD_(1)2" type="Sprite" parent="." index="83"]
+
+position = Vector2( 431.883, 671.677 )
+rotation = -3.13323
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 42 )
+
+[node name="DIRT2GRASS_WORLD_(1)3" type="Sprite" parent="." index="84"]
+
+position = Vector2( 479.119, 672 )
+rotation = -3.13323
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 42 )
+
+

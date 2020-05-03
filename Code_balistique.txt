@@ -1,0 +1,23 @@
+			if ($Wizard_arm.rotation_degrees>0):
+				if ($Wizard_arm.rotation_degrees)*sign($Wizard_arm.rotation_degrees)>90:
+					get_parent().add_child(tir_arcane)
+					tir_arcane.position = $Position2D.global_position
+					tir_arcane.mouv.x = tir_arcane.spd*-((($Wizard_arm.rotation_degrees-90))/90)
+					tir_arcane.mouv.y = tir_arcane.spd*(((-$Wizard_arm.rotation_degrees+180))/90)
+				else:
+					get_parent().add_child(tir_arcane)
+					tir_arcane.position = $Position2D.global_position
+					tir_arcane.mouv.x = tir_arcane.spd * (-(($Wizard_arm.rotation_degrees-90))/90) 
+					tir_arcane.mouv.y = tir_arcane.spd * (($Wizard_arm.rotation_degrees)/90)
+
+			if ($Wizard_arm.rotation_degrees<0):
+				if ($Wizard_arm.rotation_degrees)*sign($Wizard_arm.rotation_degrees)>90:
+					get_parent().add_child(tir_arcane)
+					tir_arcane.position = $Position2D.global_position
+					tir_arcane.mouv.x = tir_arcane.spd*((($Wizard_arm.rotation_degrees+90))/90)
+					tir_arcane.mouv.y = tir_arcane.spd*-((($Wizard_arm.rotation_degrees+180))/90)
+				else:
+					get_parent().add_child(tir_arcane)
+					tir_arcane.position = $Position2D.global_position
+					tir_arcane.mouv.x = tir_arcane.spd * (($Wizard_arm.rotation_degrees+90)/90) 
+					tir_arcane.mouv.y = tir_arcane.spd * (-(-$Wizard_arm.rotation_degrees)/90) 

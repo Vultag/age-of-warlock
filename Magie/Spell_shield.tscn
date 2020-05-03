@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Graphics/magie/Spell_shield/shield_castingFrame1.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/magie/Spell_shield/shield_castingCopy_Frame1.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/interface/Arrow/Arrow_line.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/interface/Arrow/arrow_end.png" type="Texture" id=4]
+[ext_resource path="res://Magie/Spell_shield.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+height = 0.0
+
+[node name="spell_shield" type="AnimatedSprite"]
+z_index = 6
+frames = SubResource( 1 )
+playing = true
+script = ExtResource( 5 )
+
+[node name="arrow_line" type="Line2D" parent="."]
+scale = Vector2( 1.5, 1.5 )
+points = PoolVector2Array( 0, 0, -51.3333, 0 )
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 3 )
+texture_mode = 1
+
+[node name="arrow_end" type="Sprite" parent="."]
+position = Vector2( -80, 0 )
+scale = Vector2( 1.2, 0.8 )
+texture = ExtResource( 4 )
+
+[node name="spell_shield_hitbox" type="Area2D" parent="arrow_end"]
+position = Vector2( 80, 0 )
+collision_layer = 15
+collision_mask = 15
+
+[node name="hitbox" type="CollisionShape2D" parent="arrow_end/spell_shield_hitbox"]
+position = Vector2( -84.5, 0 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="arrow_end/spell_shield_hitbox" to="." method="_on_spell_shield_hitbox_body_entered"]
+[connection signal="body_exited" from="arrow_end/spell_shield_hitbox" to="." method="_on_spell_shield_hitbox_body_exited"]

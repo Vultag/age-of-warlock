@@ -1,0 +1,112 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://Character/Warrior.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Spectral_war/Spectral war_mouv/Spectral_warrior_Mouvmouv_1.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Spectral_war/Spectral war_mouv/Spectral_warrior_Mouvmouv_2.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/Spectral_war/Spectral war_mouv/Spectral_warrior_Mouvmouv_3.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/Spectral_war/Spectral war_mouv/Spectral_warrior_Mouvmouv_4.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/Spectral_war/Spectral war_mouv/Spectral_warrior_Mouvmouv_6.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/Spectral_war/Spectral war_mouv/Spectral_warrior_Mouvmouv_7.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/Spectral_war/Spectral war_mouv/Spectral_warrior_Mouvmouv_8.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/Spectral_war/Spectral war_mouv/Spectral_warrior_Mouvmouv_9.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/Spectral_war/Spectral war_mouv/Spectral_warrior_Mouvmouv_10.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/Spectral_war/Spectral war_mouv/Spectral_warrior_Mouvmouv_11.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/Spectral_war/Spectral_warrior_Static.png" type="Texture" id=12]
+[ext_resource path="res://Graphics/Spectral_war/Spectral_war_attack/Spectral_warrior_Attackattack_1.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/Spectral_war/Spectral_war_attack/Spectral_warrior_Attackattack_2.png" type="Texture" id=14]
+[ext_resource path="res://Graphics/Spectral_war/Spectral_war_attack/Spectral_warrior_Attackattack_3.png" type="Texture" id=15]
+[ext_resource path="res://Graphics/Spectral_war/Spectral_war_attack/Spectral_warrior_Attackattack_4.png" type="Texture" id=16]
+[ext_resource path="res://Graphics/Spectral_war/Spectral_war_attack/Spectral_warrior_Attackattack_5.png" type="Texture" id=17]
+[ext_resource path="res://Graphics/Spectral_war/Spectral_war_attack/Spectral_warrior_Attackattack_6.png" type="Texture" id=18]
+[ext_resource path="res://Graphics/Spectral_war/Spectral_war_attack/Spectral_warrior_Attackattack_7.png" type="Texture" id=19]
+[ext_resource path="res://Graphics/Spectral_war/Spectral_war_attack/Spectral_warrior_Attackattack_8.png" type="Texture" id=20]
+[ext_resource path="res://Graphics/Spectral_war/Spectral_war_attack/Spectral_warrior_Attackattack_10.png" type="Texture" id=21]
+[ext_resource path="res://Graphics/Spectral_war/Spectral_war_attack/Spectral_warrior_Attackattack_11.png" type="Texture" id=22]
+[ext_resource path="res://Graphics/interface/bar_vie/bar_vie.png" type="Texture" id=23]
+[ext_resource path="res://Graphics/interface/bar_vie/Image11.png" type="Texture" id=24]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "mouv",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "static",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "attack",
+"speed": 15.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 9.0
+height = 18.0
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 6.0
+height = 28.0
+
+[node name="Warrior" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Warrior_spr" type="AnimatedSprite" parent="." groups=[
+"Character_sprite",
+]]
+frames = SubResource( 1 )
+animation = "attack"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="attack_hitbox" type="Area2D" parent="Warrior_spr"]
+position = Vector2( 17, -2 )
+
+[node name="hitbox" type="CollisionShape2D" parent="Warrior_spr/attack_hitbox"]
+position = Vector2( 4, -4 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="barre_vie" type="AnimatedSprite" parent="Warrior_spr"]
+position = Vector2( -3, -24 )
+frames = SubResource( 3 )
+
+[node name="vie" type="AnimatedSprite" parent="Warrior_spr/barre_vie"]
+position = Vector2( -8, -13 )
+frames = SubResource( 4 )
+centered = false
+
+[node name="hit_box_L" type="CollisionShape2D" parent="."]
+position = Vector2( -2, 0 )
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="hit_box_R" type="CollisionShape2D" parent="."]
+position = Vector2( 2, 0 )
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="body_entered" from="Warrior_spr/attack_hitbox" to="." method="_on_attack_hitbox_body_entered"]

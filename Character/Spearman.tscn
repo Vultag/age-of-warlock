@@ -1,0 +1,114 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Character/Spearman.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Spectral_spear/walk/Spectral_spearwalk_3.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Spectral_spear/walk/Spectral_spearwalk_4.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/Spectral_spear/walk/Spectral_spearwalk_4.5.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/Spectral_spear/walk/Spectral_spearwalk_5.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/Spectral_spear/walk/Spectral_spearwalk_6.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/Spectral_spear/walk/Spectral_spearwalk_7.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/Spectral_spear/walk/Spectral_spearwalk_8.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/Spectral_spear/walk/Spectral_spearwalk_9.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/Spectral_spear/attack/Spectral_spear_attackattack_1.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/Spectral_spear/attack/Spectral_spear_attackattack_2.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/Spectral_spear/attack/Spectral_spear_attackattack_3.png" type="Texture" id=12]
+[ext_resource path="res://Graphics/Spectral_spear/attack/Spectral_spear_attackattack_4.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/Spectral_spear/attack/Spectral_spear_attackattack_5.png" type="Texture" id=14]
+[ext_resource path="res://Graphics/Spectral_spear/attack/Spectral_spear_attackattack_6.png" type="Texture" id=15]
+[ext_resource path="res://Graphics/Spectral_spear/attack/Spectral_spear_attackattack_7.png" type="Texture" id=16]
+[ext_resource path="res://Graphics/Spectral_spear/attack/Spectral_spear_attackattack_8.png" type="Texture" id=17]
+[ext_resource path="res://Graphics/Spectral_spear/attack/Spectral_spear_attackattack_9.png" type="Texture" id=18]
+[ext_resource path="res://Graphics/Spectral_spear/Spectral_spear.png" type="Texture" id=19]
+[ext_resource path="res://Graphics/interface/bar_vie/bar_vie.png" type="Texture" id=20]
+[ext_resource path="res://Graphics/interface/bar_vie/vie.png" type="Texture" id=21]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "mouv",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "attack",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "static",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 4 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 6.0
+height = 28.0
+
+[node name="Spearman" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Spearman_spr" type="AnimatedSprite" parent="." groups=[
+"Character_sprite",
+]]
+frames = SubResource( 1 )
+animation = "mouv"
+
+[node name="attack_hitbox" type="Area2D" parent="Spearman_spr"]
+
+[node name="hitbox" type="CollisionShape2D" parent="Spearman_spr/attack_hitbox"]
+position = Vector2( 31, -6 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="barre_vie" type="AnimatedSprite" parent="Spearman_spr"]
+position = Vector2( -4, -23 )
+frames = SubResource( 3 )
+animation = "off"
+
+[node name="vie" type="AnimatedSprite" parent="Spearman_spr/barre_vie"]
+position = Vector2( 1, 3 )
+frames = SubResource( 4 )
+animation = "off"
+
+[node name="hit_box_L" type="CollisionShape2D" parent="."]
+position = Vector2( -3, 0 )
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="hit_box_R" type="CollisionShape2D" parent="."]
+position = Vector2( 3, 0 )
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}

@@ -1,0 +1,272 @@
+[gd_scene load_steps=55 format=2]
+
+[ext_resource path="res://Wizard.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/wizard/mouv_/Wizard_mouv2.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/wizard/mouv_/Wizard_mouv3.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/wizard/mouv_/Wizard_mouv4.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/wizard/mouv_/Wizard_mouv1.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/wizard/arms_/Wizard_arms_shoot2.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/wizard/arms_/Wizard_arms_shoot3.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/wizard/arms_/Wizard_arms_shoot4.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/wizard/arms_/Wizard_arms_shoot5.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/wizard/arms_/Wizard_arms_shoot6.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/wizard/arms_/Wizard_arms_shoot18.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/wizard/arms_/Wizard_arms_shoot1.png" type="Texture" id=12]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot1.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot2.png" type="Texture" id=14]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot3.png" type="Texture" id=15]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot4.png" type="Texture" id=16]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot5.png" type="Texture" id=17]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot6.png" type="Texture" id=18]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot7.png" type="Texture" id=19]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot8.png" type="Texture" id=20]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot9.png" type="Texture" id=21]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot10.png" type="Texture" id=22]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot11.png" type="Texture" id=23]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot12.png" type="Texture" id=24]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot13.png" type="Texture" id=25]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot14.png" type="Texture" id=26]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot15.png" type="Texture" id=27]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot16.png" type="Texture" id=28]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot17.png" type="Texture" id=29]
+[ext_resource path="res://Graphics/wizard/arms_/shooting/Wizard_arms_shoot18.png" type="Texture" id=30]
+[ext_resource path="res://Graphics/wizard/fireball/Wizard_arms_fireballFrame1.png" type="Texture" id=31]
+[ext_resource path="res://Graphics/wizard/fireball/Wizard_arms_fireballCopy_Frame1.png" type="Texture" id=32]
+[ext_resource path="res://Graphics/wizard/fireball/Wizard_arms_fireballCopy_Copy_Frame1.png" type="Texture" id=33]
+[ext_resource path="res://Graphics/wizard/arms_/shielding/Wizard_arms_shoot1.png" type="Texture" id=34]
+[ext_resource path="res://Graphics/wizard/arms_/shielding/Wizard_arms_shoot2.png" type="Texture" id=35]
+[ext_resource path="res://Graphics/wizard/arms_/shielding/Wizard_arms_shoot3.png" type="Texture" id=36]
+[ext_resource path="res://Graphics/wizard/arms_/shielding/Wizard_arms_shoot4.png" type="Texture" id=37]
+[ext_resource path="res://Graphics/wizard/arms_/shielding/Wizard_arms_shoot5.png" type="Texture" id=38]
+[ext_resource path="res://Graphics/wizard/arms_/shielding/Wizard_arms_shoot6.png" type="Texture" id=39]
+[ext_resource path="res://Graphics/wizard/arms_/shielding/Wizard_arms_shielding1.png" type="Texture" id=40]
+[ext_resource path="res://Graphics/wizard/arms_/shielding/Wizard_arms_shielding2.png" type="Texture" id=41]
+[ext_resource path="res://Graphics/wizard/arms_/shielding/Wizard_arms_shielding3.png" type="Texture" id=42]
+[ext_resource path="res://Graphics/wizard/arms_/shielding/Wizard_arms_shielding4.png" type="Texture" id=43]
+[ext_resource path="res://Graphics/wizard/fireball/Wizard_arms_fireballCopy_Copy_Copy_Frame1.png" type="Texture" id=44]
+[ext_resource path="res://Graphics/wizard/fireball/Wizard_arms_fireballCopy_Copy_Copy_Copy_Frame1.png" type="Texture" id=45]
+[ext_resource path="res://Graphics/wizard/fireball/Wizard_arms_fireballCopy_Copy_Copy_Copy_Copy_Frame1.png" type="Texture" id=46]
+[ext_resource path="res://Graphics/interface/bar_vie/bar_vie.png" type="Texture" id=47]
+[ext_resource path="res://Graphics/interface/bar_vie/vie.png" type="Texture" id=48]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "mouv",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "static",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ) ],
+"loop": false,
+"name": "shield",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"loop": false,
+"name": "fireball_aim",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
+"loop": false,
+"name": "fireball_shoot",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "aim",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "static",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"loop": false,
+"name": "shoot",
+"speed": 20.0
+} ]
+
+[sub_resource type="Animation" id=3]
+resource_name = "shield"
+length = 0.52
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.22, 0.32, 0.42 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Shield/Shield_hitbox:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.12, 0.22, 0.32, 0.42 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 18.8422, 1, 19.8422, 0, 20.8422, -1, 21.8422, -1, 21.8422, 5, 20.8422, 5, 19.8422, 4, 18.8422, 3, 18.8422, 2 ), PoolVector2Array( 18.8422, -2, 19.8422, -4, 20.8422, -4, 21.8422, -2, 21.8422, 6, 20.8422, 8, 19.8422, 8, 18.8422, 6, 18.8422, 2 ), PoolVector2Array( 17.8422, -6, 18.8422, -6, 19.8422, -5, 20.8422, -4, 21.8422, -2, 21.8422, 6, 20.8422, 8, 19.8422, 9, 18.8422, 10, 17.8422, 10, 17.8422, 6, 18.8422, 2, 17.8422, -1 ), PoolVector2Array( 14.8422, -8, 16.8422, -8, 17.8422, -7, 18.8422, -6, 19.8422, -5, 20.8422, -4, 21.8422, -2, 21.8422, 6, 20.8422, 8, 19.8422, 9, 18.8422, 10, 17.8422, 11, 16.8422, 12, 14.8422, 12, 14.8422, 10, 16.8422, 8, 17.8422, 2, 16.8422, -4, 14.8422, -6 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "shield" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Shield/Shield_hitbox:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.12 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "static"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "static" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 47 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 48 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Wizard" type="KinematicBody2D" groups=[
+"Character",
+"Character_red",
+"Hero",
+]]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="Wizard_spr" type="AnimatedSprite" parent="." groups=[
+"Character_sprite",
+]]
+frames = SubResource( 1 )
+animation = "static"
+frame = 3
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wizard_arm" type="AnimatedSprite" parent="."]
+position = Vector2( 0.157776, 0 )
+frames = SubResource( 2 )
+animation = "static"
+frame = 1
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Shield" type="KinematicBody2D" parent="Wizard_arm" groups=[
+"Shield",
+]]
+collision_mask = 10
+
+[node name="Shield_hitbox" type="CollisionPolygon2D" parent="Wizard_arm/Shield"]
+build_mode = 1
+polygon = PoolVector2Array( 14.8422, -8, 16.8422, -8, 17.8422, -7, 18.8422, -6, 19.8422, -5, 20.8422, -4, 21.8422, -2, 21.8422, 6, 20.8422, 8, 19.8422, 9, 18.8422, 10, 17.8422, 11, 16.8422, 12, 14.8422, 12, 14.8422, 10, 16.8422, 8, 17.8422, 2, 16.8422, -4, 14.8422, -6 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Position2D" type="Position2D" parent="Wizard_arm/Shield"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wizard_arm"]
+anims/shield = SubResource( 3 )
+anims/static = SubResource( 4 )
+
+[node name="fireball_spawn" type="Position2D" parent="Wizard_arm"]
+position = Vector2( 11.8422, -1 )
+
+[node name="Position2D" type="Position2D" parent="Wizard_arm"]
+position = Vector2( 12.8422, 2 )
+
+[node name="hit_box" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 8, -13, 8, -6, 7, -6, 7, -5, 8, -4, 6, 0, 6, 1, 8, 4, 7, 8, -2, 13, -8, 15, -11, 15, -9, 8, -4, 2, -4, -1, -4, -3, -3, -5, -3, -7, -4, -8, -4, -12, 0, -15, 3, -16, 6, -15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="barre_vie" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -20 )
+frames = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="vie" type="AnimatedSprite" parent="barre_vie"]
+position = Vector2( -8, -13 )
+frames = SubResource( 6 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
