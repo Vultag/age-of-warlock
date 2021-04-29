@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://interface/cards/card_magie.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/interface/card_magic/fire/card_firel.png" type="Texture" id=2]
@@ -10,6 +10,16 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "shield",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "mass_shield",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "fire",
@@ -20,39 +30,29 @@ animations = [ {
 "name": "fireball",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "frostball",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "frost",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "mass_shield",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "shield",
+"name": "frostball",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 42.5, 62.5 )
+extents = Vector2( 60, 87 )
 
 [sub_resource type="Animation" id=3]
-resource_name = "mouse_over_in"
-length = 0.5
+resource_name = "mouse_over"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -64,48 +64,33 @@ tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1.5, 1.5 ), Vector2( 1.75, 1.75 ) ]
+"values": [ Vector2( 1.5, 1.5 ), Vector2( 2, 2 ) ]
 }
-
-[sub_resource type="Animation" id=4]
-resource_name = "mouse_over_out"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+tracks/2/type = "value"
+tracks/2/path = NodePath("icons:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -15 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.75, 1.75 ), Vector2( 1.5, 1.5 ) ]
+"values": [ Vector2( 1.5, 1.5 ), Vector2( 2.5, 2.5 ) ]
 }
 
 [node name="card_magie" type="Node2D"]
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 0, -15 )
 script = ExtResource( 1 )
 
 [node name="icons" type="AnimatedSprite" parent="."]
 position = Vector2( -1.52588e-05, 0 )
+scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
 animation = "mass_shield"
 __meta__ = {
@@ -113,13 +98,16 @@ __meta__ = {
 }
 
 [node name="Area2D" type="Area2D" parent="."]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, 7.33332 )
+position = Vector2( 0, 10 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/mouse_over_in = SubResource( 3 )
-anims/mouse_over_out = SubResource( 4 )
+anims/mouse_over = SubResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]
+playback_process_mode = 0
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

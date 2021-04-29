@@ -1,0 +1,143 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Graphics/interface/card_magic/Shield/card_mass_shield.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/interface/card_magic/frostball/card_frostballCopy_Frame1.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/interface/card_magic/Shield/card_shield.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/interface/card_magic/fireball/card_fireball.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/interface/card_magic/frost/card_frostCopy_Frame1.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/interface/card_magic/fire/card_fire.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/interface/lvl_up_background.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/interface/card_spearman.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/interface/card_eye.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/interface/card_warrior.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/interface/card_perks/card_perk_bigger_shield.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/interface/card_homing_missile.png" type="Texture" id=12]
+[ext_resource path="res://Graphics/interface/card_bat.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/interface/card_ranger.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 9 ), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "monstres",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "perks",
+"speed": 0.0
+} ]
+
+[node name="lvl_up" type="Sprite"]
+visible = false
+position = Vector2( 972.476, 360.336 )
+texture = ExtResource( 7 )
+
+[node name="lvl_up_img" type="Sprite" parent="."]
+position = Vector2( -15.8453, 56.1178 )
+scale = Vector2( 4.5, 4.5 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="unlock_1" type="AnimatedSprite" parent="."]
+position = Vector2( -234.944, -3.73398 )
+frames = SubResource( 11 )
+animation = "monstres"
+speed_scale = 0.0
+
+[node name="Button_unlock_1" type="Button" parent="unlock_1"]
+show_behind_parent = true
+margin_left = -44.0
+margin_top = -55.0
+margin_right = 44.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="unlock_2" type="AnimatedSprite" parent="."]
+position = Vector2( -14.1755, -2.54477 )
+frames = SubResource( 11 )
+animation = "monstres"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Button_unlock_2" type="Button" parent="unlock_2"]
+show_behind_parent = true
+margin_left = -44.0
+margin_top = -55.0
+margin_right = 44.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="unlock_3" type="AnimatedSprite" parent="."]
+position = Vector2( 208.764, 1.45853 )
+frames = SubResource( 11 )
+animation = "monstres"
+
+[node name="Button_unlock_3" type="Button" parent="unlock_3"]
+show_behind_parent = true
+margin_left = -44.0
+margin_top = -55.0
+margin_right = 44.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="perk_1" type="AnimatedSprite" parent="."]
+position = Vector2( -236.442, 149.093 )
+frames = SubResource( 11 )
+animation = "perks"
+speed_scale = 0.0
+
+[node name="Button_perk_1" type="Button" parent="perk_1"]
+show_behind_parent = true
+margin_left = -44.0
+margin_top = -55.0
+margin_right = 44.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="perk_2" type="AnimatedSprite" parent="."]
+position = Vector2( -15.6738, 150.283 )
+frames = SubResource( 11 )
+animation = "perks"
+
+[node name="Button_perk_2" type="Button" parent="perk_2"]
+show_behind_parent = true
+margin_left = -44.0
+margin_top = -55.0
+margin_right = 44.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="perk_3" type="AnimatedSprite" parent="."]
+position = Vector2( 210.262, 150.23 )
+frames = SubResource( 11 )
+animation = "perks"
+
+[node name="Button_perk_3" type="Button" parent="perk_3"]
+show_behind_parent = true
+margin_left = -44.0
+margin_top = -55.0
+margin_right = 44.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}

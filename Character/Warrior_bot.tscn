@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Character/Warrior_bot.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/Spectral_war/new/Spectral_warrior_Attack/Spectral_warrior_Attackattack_1.png" type="Texture" id=2]
@@ -42,11 +42,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "mouv",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": false,
 "name": "attack",
@@ -54,13 +49,18 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "static",
-"speed": 15.0
+"name": "mouv",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": false,
 "name": "die",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "static",
+"speed": 15.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -100,8 +100,6 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 9.0
-height = 18.0
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
@@ -147,11 +145,181 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="Animation" id=8]
+resource_name = "attack"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "attack" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("attack_hitbox/hitbox:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4, 0.48 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 4, 5, 6, 8, 9 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("attack_check/hitbox_check:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.65 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_attack_fin"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("attack_check/hitbox_check:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.05, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 19, 100 ), Vector2( 19, -6 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "die"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "die" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("warrior_shield:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "off" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("warrior_legs:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "off" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("barre_vie:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "off" ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "mouv"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "mouv" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("warrior_shield:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "static" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("warrior_legs:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "mouv" ]
+}
+
+[sub_resource type="CapsuleShape2D" id=11]
 radius = 5.0
 height = 30.0
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ ExtResource( 37 ) ],
 "loop": true,
@@ -164,7 +332,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=13]
 length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -191,21 +359,23 @@ tracks/1/keys = {
 "values": [ Vector2( 4, -34 ), Vector2( 4, -34 ), Vector2( 0, -32 ) ]
 }
 
-[node name="Warrior" type="KinematicBody2D" groups=[
+[node name="Warrior" type="RigidBody2D" groups=[
 "Character_red",
 "Warrior",
 ]]
-collision_mask = 8
+collision_layer = 2
+collision_mask = 142
+mode = 2
+gravity_scale = 5.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Warrior_spr" type="AnimatedSprite" parent="." groups=[
 "Character_sprite",
 ]]
 frames = SubResource( 1 )
-animation = "static"
+animation = "attack"
+frame = 9
+playing = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -220,33 +390,37 @@ __meta__ = {
 
 [node name="warrior_legs" type="AnimatedSprite" parent="Warrior_spr"]
 frames = SubResource( 3 )
-animation = "static"
+animation = "mouv"
+frame = 5
+playing = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="attack_check" type="Area2D" parent="Warrior_spr"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 2180
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="hitbox_check" type="CollisionShape2D" parent="Warrior_spr/attack_check"]
-position = Vector2( 17, -6 )
+position = Vector2( 19, -6 )
 shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="attack_hitbox" type="Area2D" parent="Warrior_spr"]
 position = Vector2( 17, -2 )
 collision_layer = 0
-collision_mask = 2
+collision_mask = 2180
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="hitbox" type="CollisionShape2D" parent="Warrior_spr/attack_hitbox"]
 position = Vector2( 2, -4 )
-scale = Vector2( 1.2, 1.2 )
 shape = SubResource( 4 )
 disabled = true
 __meta__ = {
@@ -257,6 +431,7 @@ __meta__ = {
 position = Vector2( -3, -24 )
 scale = Vector2( 1.2, 1 )
 frames = SubResource( 5 )
+animation = "off"
 __meta__ = {
 "_edit_lock_": true
 }
@@ -275,9 +450,14 @@ frames = SubResource( 7 )
 animation = "off"
 centered = false
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Warrior_spr"]
+anims/attack = SubResource( 8 )
+anims/die = SubResource( 9 )
+anims/mouv = SubResource( 10 )
+
 [node name="hit_box" type="CollisionShape2D" parent="."]
 position = Vector2( -2, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -285,14 +465,14 @@ __meta__ = {
 [node name="block_display" type="AnimatedSprite" parent="."]
 position = Vector2( 4, -34 )
 scale = Vector2( 0.46, 0.46 )
-frames = SubResource( 9 )
+frames = SubResource( 12 )
 animation = "off"
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="block_display"]
-anims/de-pop = SubResource( 10 )
+anims/de-pop = SubResource( 13 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0

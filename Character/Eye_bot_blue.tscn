@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Character/Eye_bot_blue.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/Eye/eye_blink_blue/eye_blink_blue0000.png" type="Texture" id=2]
@@ -18,6 +18,8 @@
 [ext_resource path="res://Graphics/Eye/tentacules_blue/Tentacules_blue0008.png" type="Texture" id=16]
 [ext_resource path="res://Graphics/interface/bar_vie/bar_vie.png" type="Texture" id=17]
 [ext_resource path="res://Graphics/interface/bar_vie/vie_blue.png" type="Texture" id=18]
+[ext_resource path="res://Graphics/interface/bar_vie/vie_divine_shield.png" type="Texture" id=19]
+[ext_resource path="res://Graphics/interface/bar_vie/bar_vie_divine_shield.png" type="Texture" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -35,7 +37,38 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="Animation" id=3]
+resource_name = "mouv"
+length = 1.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_push"
+} ]
+}
+
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
@@ -46,12 +79,33 @@ animations = [ {
 "loop": true,
 "name": "off",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "divine_shield",
+"speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=4]
-resource_name = "Eye_aim"
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 12.0
+
+[sub_resource type="Animation" id=7]
 length = 2.0
 loop = true
+step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("eye_spr:frame")
 tracks/0/interp = 1
@@ -59,13 +113,27 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 2 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_shoot"
+} ]
+}
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=8]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -85,7 +153,7 @@ tracks/1/path = NodePath("..:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 0, 1, 2, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
@@ -93,8 +161,8 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 5, -4 ), Vector2( 8, 6 ), Vector2( -6, 2 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=6]
-radius = 282.117
+[sub_resource type="CircleShape2D" id=9]
+radius = 300.0
 
 [node name="offset_setup" type="Node2D"]
 __meta__ = {
@@ -102,16 +170,18 @@ __meta__ = {
 }
 
 [node name="offset_setup_2" type="Node2D" parent="."]
-position = Vector2( -4.992, 1.152 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Eye" type="KinematicBody2D" parent="offset_setup_2" groups=[
+[node name="Eye" type="RigidBody2D" parent="offset_setup_2" groups=[
 "Character_blue",
+"Eye",
 ]]
-collision_layer = 2
-collision_mask = 8
+collision_layer = 4
+collision_mask = 110
+mode = 2
+custom_integrator = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -128,14 +198,17 @@ __meta__ = {
 show_behind_parent = true
 frames = SubResource( 2 )
 animation = "idle"
-frame = 4
+frame = 6
 playing = true
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="tent" type="AnimationPlayer" parent="offset_setup_2/Eye/eye_spr/tentacules"]
+anims/mouv = SubResource( 3 )
+
 [node name="barre_vie" type="AnimatedSprite" parent="offset_setup_2/Eye/eye_spr"]
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 offset = Vector2( 3, -15 )
 __meta__ = {
 "_edit_lock_": true
@@ -152,25 +225,36 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="offset_setup_2/Eye"]
-polygon = PoolVector2Array( 16, -5, 16, 4, 15, 4, 15, 7, 11, 11, 9, 12, 2, 12, -1, 11, -3, 10, -5, 5, -5, -2, -4, -5, -3, -7, -3, -11, 0, -12, 2, -13, 9, -13, 11, -12, 15, -8, 15, -5 )
+[node name="divine_shield" type="AnimatedSprite" parent="offset_setup_2/Eye/eye_spr/barre_vie"]
+position = Vector2( -3.00831, -24.0251 )
+frames = SubResource( 5 )
+animation = "off"
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="offset_setup_2/Eye"]
+position = Vector2( 5, -0.5 )
+shape = SubResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="offset_setup_2/Eye"]
-anims/Eye_aim = SubResource( 4 )
-anims/eye_idle = SubResource( 5 )
+anims/Eye_aim = SubResource( 7 )
+anims/eye_idle = SubResource( 8 )
 
 [node name="aim_check" type="Area2D" parent="offset_setup_2/Eye"]
 collision_layer = 0
+collision_mask = 1090
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="aim" type="CollisionShape2D" parent="offset_setup_2/Eye/aim_check"]
-position = Vector2( 286.734, 0 )
-shape = SubResource( 6 )
+position = Vector2( -286.734, 0 )
+shape = SubResource( 9 )
 
 [node name="shoot_point" type="Position2D" parent="offset_setup_2/Eye"]
 position = Vector2( 14.992, -1.152 )
@@ -178,4 +262,3 @@ __meta__ = {
 "_edit_lock_": true
 }
 [connection signal="body_entered" from="offset_setup_2/Eye/aim_check" to="offset_setup_2/Eye" method="_on_aim_check_body_entered"]
-[connection signal="body_exited" from="offset_setup_2/Eye/aim_check" to="offset_setup_2/Eye" method="_on_aim_check_body_exited"]

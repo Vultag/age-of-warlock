@@ -17,9 +17,12 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=2]
 height = 0.0
 
-[node name="spell_shield" type="AnimatedSprite"]
+[node name="spell_shield" type="AnimatedSprite" groups=[
+"Spell",
+]]
 z_index = 6
 frames = SubResource( 1 )
+frame = 1
 playing = true
 script = ExtResource( 5 )
 

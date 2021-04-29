@@ -51,9 +51,11 @@ rotation = -1.39626
 cast_to = Vector2( 0, 200 )
 
 [node name="Timer" type="Timer" parent="."]
+process_mode = 0
 wait_time = 0.1
 
 [node name="Timer_quefree" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_quefree" to="." method="_on_Timer_quefree_timeout"]

@@ -99,7 +99,8 @@ extents = Vector2( 45, 96 )
 
 [node name="Portal_blue" type="Area2D"]
 scale = Vector2( 3, 3 )
-collision_layer = 0
+monitorable = false
+collision_layer = 128
 collision_mask = 0
 script = ExtResource( 1 )
 __meta__ = {
@@ -146,12 +147,12 @@ __meta__ = {
 
 [node name="strairs" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( -61, 80, -59, 77, -55, 77, -51, 73, -49, 73, -45, 69, 45, 69, 49, 73, 51, 73, 55, 77, 58, 77, 61, 80 )
+disabled = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="PJ_respawn_spr" type="AnimatedSprite" parent="."]
-visible = false
 position = Vector2( -0.586003, -90 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 4 )
@@ -175,3 +176,4 @@ shape = SubResource( 7 )
 
 [node name="center" type="Position2D" parent="."]
 position = Vector2( -1, 11.3333 )
+[connection signal="body_entered" from="." to="." method="_on_Portal_blue_body_entered"]

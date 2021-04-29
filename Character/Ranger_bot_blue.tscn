@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://Character/Ranger_bot_blue.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/Spectral_rang/reload/Spectral_ranger_reload1.png" type="Texture" id=2]
@@ -49,6 +49,8 @@
 [ext_resource path="res://Graphics/Spectral_rang/Shooting/Spectral_ranger_shoot_arms14.png" type="Texture" id=47]
 [ext_resource path="res://Graphics/Spectral_rang/Shooting/Spectral_ranger_shoot_arms15.png" type="Texture" id=48]
 [ext_resource path="res://Graphics/Spectral_rang/Shooting/Spectral_ranger_shoot_arms16.png" type="Texture" id=49]
+[ext_resource path="res://Graphics/interface/bar_vie/bar_vie_divine_shield.png" type="Texture" id=50]
+[ext_resource path="res://Graphics/interface/bar_vie/vie_divine_shield.png" type="Texture" id=51]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -57,20 +59,20 @@ animations = [ {
 "name": "reload",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 23 ) ],
-"loop": true,
-"name": "shoot",
-"speed": 5.0
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "die",
+"speed": 13.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "static",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": false,
-"name": "die",
-"speed": 13.0
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -83,6 +85,11 @@ animations = [ {
 "frames": [ null ],
 "loop": true,
 "name": "off",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 50 ) ],
+"loop": true,
+"name": "divine_shield",
 "speed": 5.0
 } ]
 
@@ -99,10 +106,23 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 51 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 271, 176 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ null ],
 "loop": true,
@@ -120,7 +140,11 @@ animations = [ {
 "speed": 1.0
 } ]
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 5.0
+height = 29.0
+
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -133,52 +157,255 @@ animations = [ {
 "speed": 12.0
 } ]
 
-[node name="Ranger" type="KinematicBody2D" groups=[
+[sub_resource type="Animation" id=9]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ranger_spr:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "die" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Ranger_spr/Ranger_legs:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "off" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ranger_arm:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "off" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Ranger_spr:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "mouv"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ranger_spr:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "static" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Ranger_spr/Ranger_legs:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "mouv" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ranger_arm:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "off" ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "reload"
+length = 1.3
+step = 0.12
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ranger_spr:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "reload" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Ranger_arm:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "off" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ranger_spr:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.12, 0.24, 0.36, 0.48, 0.6, 0.72, 0.84, 0.96, 1.08, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "shoot"
+length = 0.7
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ranger_spr:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "shoot" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Ranger_arm:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "shoot" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ranger_arm:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.54, 0.56, 0.58, 0.6, 0.62, 0.64, 0.66 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.49 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_shoot"
+} ]
+}
+
+[node name="Ranger" type="RigidBody2D" groups=[
 "Character_blue",
 "Character_sprite",
 ]]
-collision_layer = 2
-collision_mask = 8
+collision_layer = 4
+collision_mask = 2147483758
+mode = 2
+custom_integrator = true
 script = ExtResource( 1 )
 
 [node name="Ranger_spr" type="AnimatedSprite" parent="."]
+scale = Vector2( -1, 1 )
 frames = SubResource( 1 )
-animation = "static"
+animation = "die"
+frame = 8
+playing = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="barre_vie" type="AnimatedSprite" parent="Ranger_spr"]
-position = Vector2( -4, -21 )
+position = Vector2( -4, -21.0276 )
 frames = SubResource( 2 )
 
 [node name="vie" type="AnimatedSprite" parent="Ranger_spr/barre_vie"]
-position = Vector2( -8, -13 )
+position = Vector2( -8, -13.0731 )
 frames = SubResource( 3 )
+centered = false
+
+[node name="divine_shield" type="AnimatedSprite" parent="Ranger_spr/barre_vie"]
+position = Vector2( -5.99294, -8.98436 )
+frames = SubResource( 4 )
+animation = "off"
 centered = false
 
 [node name="shoot_check" type="Area2D" parent="Ranger_spr"]
 collision_layer = 0
+collision_mask = 1090
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ranger_spr/shoot_check"]
 position = Vector2( 271, 0 )
 scale = Vector2( 1, 2.2 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Ranger_legs" type="AnimatedSprite" parent="Ranger_spr"]
-frames = SubResource( 5 )
-animation = "static"
+frames = SubResource( 6 )
+animation = "off"
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="hit_box" type="CollisionPolygon2D" parent="."]
-position = Vector2( 3, 1 )
-scale = Vector2( -1, 1 )
-polygon = PoolVector2Array( -5, 19, 6, 19, 6, 17, 5, 17, 5, -3, 7, -5, 7, -8, 4, -10, 4, -11, 5, -12, 5, -18, 2, -20, -1, -20, -5, -18, -5, -11, -4, -11, -5, -8, -6, -7, -6, -3, -5, -2 )
+[node name="hit_box" type="CollisionShape2D" parent="."]
+position = Vector2( 3, 0.5 )
+shape = SubResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Ranger_arm" type="AnimatedSprite" parent="."]
-frames = SubResource( 6 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+frames = SubResource( 8 )
 animation = "off"
 __meta__ = {
 "_edit_lock_": true
@@ -191,6 +418,12 @@ position = Vector2( 0, -11 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/die = SubResource( 9 )
+anims/mouv = SubResource( 10 )
+anims/reload = SubResource( 11 )
+anims/shoot = SubResource( 12 )
 [connection signal="body_entered" from="Ranger_spr/shoot_check" to="." method="_on_shoot_check_body_entered"]
-[connection signal="body_exited" from="Ranger_spr/shoot_check" to="." method="_on_shoot_check_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

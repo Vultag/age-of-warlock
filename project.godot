@@ -16,13 +16,21 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot_tower_def"
-run/main_scene="res://MAIN.tscn"
+run/main_scene="res://Lobby_connect.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+globals="*res://globals.gd"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
+window/size/test_width=1371
+window/size/test_height=771
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [importer_defaults]
 
@@ -182,6 +190,16 @@ e={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
  ]
 }
+wheel_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":4,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+wheel_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -191,6 +209,17 @@ e={
 2d_physics/layer_2="team_red"
 2d_render/layer_3="team_blue"
 2d_physics/layer_3="team_blue"
+2d_render/layer_4="Mur"
+2d_physics/layer_4="Mur"
+2d_render/layer_5="Shield_red"
+2d_physics/layer_5="Shield"
+2d_render/layer_6="Shield_blue"
+2d_render/layer_7="Portal_red"
+2d_render/layer_8="Portal_blue"
+2d_render/layer_11="tour_red"
+2d_physics/layer_11="tour_red"
+2d_render/layer_12="tour_blue"
+2d_physics/layer_12="tour_blue"
 
 [rendering]
 

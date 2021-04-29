@@ -22,9 +22,12 @@ height = 0.0
 [sub_resource type="CircleShape2D" id=3]
 radius = 150.004
 
-[node name="spell_mass_shield" type="AnimatedSprite"]
+[node name="spell_mass_shield" type="AnimatedSprite" groups=[
+"Spell",
+]]
 z_index = 6
 frames = SubResource( 1 )
+frame = 1
 playing = true
 script = ExtResource( 1 )
 
@@ -42,8 +45,8 @@ texture = ExtResource( 4 )
 
 [node name="spell_shield_hitbox" type="Area2D" parent="arrow_end"]
 position = Vector2( 80, 0 )
-collision_layer = 15
-collision_mask = 15
+collision_layer = 0
+collision_mask = 6
 
 [node name="hitbox" type="CollisionShape2D" parent="arrow_end/spell_shield_hitbox"]
 position = Vector2( -84.5, 0 )
@@ -60,12 +63,19 @@ texture = ExtResource( 6 )
 
 [node name="hitbox_click" type="Area2D" parent="arrow_end"]
 position = Vector2( 80, 0 )
+collision_layer = 0
+collision_mask = 6
 
 [node name="hitbox_click" type="CollisionShape2D" parent="arrow_end/hitbox_click"]
 position = Vector2( -84.5, 0 )
 scale = Vector2( 0.8, 1.2 )
 shape = SubResource( 3 )
 disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 [connection signal="body_entered" from="arrow_end/spell_shield_hitbox" to="." method="_on_spell_shield_hitbox_body_entered"]
 [connection signal="body_exited" from="arrow_end/spell_shield_hitbox" to="." method="_on_spell_shield_hitbox_body_exited"]
 [connection signal="body_entered" from="arrow_end/hitbox_click" to="." method="_on_hitbox_click_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

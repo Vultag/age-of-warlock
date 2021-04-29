@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tir_arcane.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/wizard/projectile/Wizard_projectile17.png" type="Texture" id=2]
@@ -8,20 +8,24 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "homing_missile",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ) ],
 "loop": false,
 "name": "tir_fort",
 "speed": 3.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "tir_faible",
-"speed": 5.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 3.0
+height = 3.5
+
 [node name="tir_arcane" type="Area2D"]
-collision_layer = 0
-collision_mask = 10
+collision_layer = 2147483648
+collision_mask = 2221
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -32,9 +36,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.94, 0.55 )
-polygon = PoolVector2Array( 5.05017, -0.561565, 5.05017, 0.438435, 4.05017, 0.438435, 4.05017, 1.43844, 3.05017, 1.43844, 3.05017, 2.43844, 2.05017, 2.43844, 0.0501671, 3.43844, -1.94983, 3.43844, -4.94983, 1.43844, -4.94983, -0.561565, -4.94983, -1.56156, -1.94983, -3.56156, 0.0501671, -3.56156, 2.05017, -2.56156, 3.05017, -2.56156, 3.05017, -1.56156, 4.05017, -1.56156, 4.05017, -0.561565 )
+rotation = 1.5708
+shape = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }

@@ -7,15 +7,18 @@ var gain = 1
 var count = false
 var body_char 
 #var sucking = false
+const playerRed_preload = preload("res://Character/Wizard.tscn")
 var HEALTH = 100
-const wizard_red_load = preload("res://Character/Wizard.tscn")
+
+var respawn_with_fire_red
+var respawn_with_frost_red
 
 func _ready():
 	$portal/Light2D/vortex/AnimationPlayer.play("vortex")
 	$PJ_respawn_spr.visible = false
 
 
-func _process(delta):
+func _physics_process(delta):
 	
 	if count == true:
 		resp_timer -= (gain*delta)
@@ -24,9 +27,9 @@ func _process(delta):
 		resp_timer = 5
 		count = false
 		$PJ_respawn_spr.visible = false
-		var wizard = wizard_red_load.instance()
-		get_parent().add_child(wizard)
-		wizard.position = get_parent().get_node("Portal_red").get_node("spawn_point_red").global_position
+		if is_network_master():
+			rpc("_wiz_respawn")
+		#playerRed.position = Vector2(900,586)
 	
 	first_digit = resp_timer
 	
@@ -50,8 +53,8 @@ func _process(delta):
 		$PJ_respawn_spr/num_2.set_frame(second_digit)
 	else:$PJ_respawn_spr/num_2.play("off")
 	
-	body_char = get_overlapping_bodies()
-	
+	#body_char = get_overlapping_bodies()
+	"""
 	if(body_char.size() != 0):
 		#body_char.back().position.y -=  1
 		for Node in body_char:
@@ -74,115 +77,49 @@ func _process(delta):
 		
 		pass
 	
-	
-	get_parent().get_node("HUD").get_node("life_portal_red").get_node("life").value = HEALTH
+	"""
 	
 	
 	if HEALTH == 0:
 		#get_tree().change_scene("res://path/to/scene.tscn")
 		pass
-	
-	
-	
-	
-	
-	
-	
-	"""
-	if sucking==true:
-		if(is_instance_valid(body_char)):
-			if(overlaps_body(body_char)):
-				if!body_char.is_in_group("Hero"):
-					body_char._stuned()
-				else:
-					pass
-				#body_char.global_position = $center.global_position
-				#if !(body_char.global_position <= ($center.global_position+Vector2(1,0)) && body_char.global_position >= ($center.global_position+Vector2(-1,0))):
-				if !(body_char.global_position.x <= ($center.global_position.x+1) && body_char.global_position.x >= ($center.global_position.x-1)):
-					if !(body_char.global_position.y <= ($center.global_position.y+1) && body_char.global_position.y >= ($center.global_position.y-1)):
-					
-					
-						body_char.mouv.x -= 0.5*sign(body_char.global_position.x-$center.global_position.x)
-						body_char.mouv.y += 0.7*sign($center.global_position.y-body_char.global_position.y)
-						pass
-					elif!body_char.is_in_group("Hero"):
-						pass
-						body_char.queue_free()
-	"""
 
-	"""
+
+sync func _wiz_respawn():
+	var playerRed = playerRed_preload.instance()
+	playerRed.set_name(str(globals.playerHostId))
+	playerRed.set_network_master(globals.playerHostId)
+	get_parent().add_child(playerRed)
+	get_parent().wiz_red = playerRed
+	playerRed.position = get_parent().get_node("Portal_red").get_node("spawn_point_red").global_position
+	if respawn_with_fire_red == true:
+		var fire = preload("res://Magie/fire.tscn").instance()
+		playerRed.add_child(fire)
+		playerRed.get_node("fire").global_position = playerRed.get_node("Wizard_arm").get_node("Position2D").global_position
+		playerRed.get_node("fire").set_emitting(false)#a changer
+		playerRed.get_node("fire").active = false
+		respawn_with_fire_red = false
+	if respawn_with_frost_red == true:
+		var frost = preload("res://Magie/frost.tscn").instance()
+		playerRed.add_child(frost)
+		playerRed.get_node("frost").global_position = playerRed.get_node("Wizard_arm").get_node("Position2D").global_position
+		playerRed.get_node("frost").set_emitting(false)#a changer
+		playerRed.get_node("frost").active = false
+		respawn_with_frost_red = false
+	playerRed.has_homing_missile = get_parent().get_node("HUD").has_homing_missile
+	#has_bigger_shield = get_parent().get_node("HUD").has_homing_missile
+	playerRed.Shield = get_parent().get_node("HUD").has_bigger_shield
+
+
+
+
+
 func _on_Portal_red_body_entered(body):
-	
-	body_char = body
-	sucking = true
-	#_portal_suck(body_char)
-	
-	pass
-	"""
-	"""
-	if(is_instance_valid(body)):
-		if(overlaps_body(body)):
-			if!body.is_in_group("Hero"):
-				body._stuned()
-			else:
-				pass
-			#body_char.global_position = $center.global_position
-			#if !(body_char.global_position <= ($center.global_position+Vector2(1,0)) && body_char.global_position >= ($center.global_position+Vector2(-1,0))):
-			if !(body.global_position.x <= ($center.global_position.x+1) && body.global_position.x >= ($center.global_position.x-1)):
-				if !(body.global_position.y <= ($center.global_position.y+1) && body.global_position.y >= ($center.global_position.y-1)):
-				
-				
-					body.mouv.x -= 0.5*sign(body.global_position.x-$center.global_position.x)
-					body.mouv.y += 0.7*sign($center.global_position.y-body.global_position.y)
-					pass
-				elif!body.is_in_group("Hero"):
-					pass
-					body.queue_free()
-	"""
-	
-	
-	"""
-	#if !body.is_in_group("Hero"):
-	if body.is_in_group("Character_red"):
-		#body._portal_suck()
-		body_char = body
-	if body.is_in_group("Character_blue"):
-		#body._portal_suck()
-		body_char = body
-	"""
-	
-
-	"""
-func _portal_suck(body):
-	
-	#body_char = body
-	sucking = true
-	"""
-	"""
-	
-	body_char._stuned()
-	body_char.mouv.y += 100
-	"""
-	
-	
-	"""
-	if(overlaps_body(body_char)):
-				if!body_char.is_in_group("Hero"):
-					body_char._stuned()
-				else:
-					pass
-				#body_char.global_position = $center.global_position
-				#if !(body_char.global_position <= ($center.global_position+Vector2(1,0)) && body_char.global_position >= ($center.global_position+Vector2(-1,0))):
-				if !(body_char.global_position.x <= ($center.global_position.x+1) && body_char.global_position.x >= ($center.global_position.x-1)):
-					if !(body_char.global_position.y <= ($center.global_position.y+1) && body_char.global_position.y >= ($center.global_position.y-1)):
-					
-					
-						body_char.mouv.x -= 0.5*sign(body_char.global_position.x-$center.global_position.x)
-						body_char.mouv.y += 0.7*sign($center.global_position.y-body_char.global_position.y)
-						pass
-					elif!body_char.is_in_group("Hero"):
-						pass
-						body_char.queue_free()
-	"""
+	if !body.is_in_group("Character"):
+		body._take_damage(10,Vector2(0,0))
+		rpc("_damage_portal")
 
 
+sync func _damage_portal():
+	#get_parent().get_node("HUD").get_node("life_portal_blue").get_node("life").visible = false
+	get_parent().get_node("HUD").get_node("life_portal_red").get_node("life").value -= 5

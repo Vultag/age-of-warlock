@@ -1,0 +1,507 @@
+[gd_scene load_steps=62 format=2]
+
+[ext_resource path="res://Graphics/interface/number/1.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/interface/number/2.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/interface/number/5.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/interface/number/0.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/interface/number/7.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/interface/number/4.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/interface/number/8.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/interface/number/9.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/interface/number/3.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/interface/number/6.png" type="Texture" id=10]
+[ext_resource path="res://HUD/HUD_red.gd" type="Script" id=11]
+[ext_resource path="res://HUD/Card_playing_red.gd" type="Script" id=12]
+[ext_resource path="res://icon.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/interface/icon/Icon_Eye_pressed.png" type="Texture" id=14]
+[ext_resource path="res://Graphics/interface/icon/Icon_bat.png" type="Texture" id=15]
+[ext_resource path="res://Graphics/interface/icon/Icon_spear_pressed.png" type="Texture" id=16]
+[ext_resource path="res://Graphics/interface/Vie_Portal/Barre_vie_Portal_blue.png" type="Texture" id=17]
+[ext_resource path="res://Graphics/interface/icon/Icon_Eye.png" type="Texture" id=18]
+[ext_resource path="res://Graphics/interface/Vie_Portal/Vie_Portal_red.png" type="Texture" id=19]
+[ext_resource path="res://Graphics/interface/nombre_crystal.png" type="Texture" id=20]
+[ext_resource path="res://Graphics/interface/nombre_crystalFrame1.png" type="Texture" id=21]
+[ext_resource path="res://Graphics/interface/icon/Icon_bat_pressed.png" type="Texture" id=22]
+[ext_resource path="res://Graphics/interface/icon/Icon_ranger.png" type="Texture" id=23]
+[ext_resource path="res://Graphics/interface/icon/Icon_spear.png" type="Texture" id=24]
+[ext_resource path="res://Graphics/interface/icon/Icon_warrior.png" type="Texture" id=25]
+[ext_resource path="res://Graphics/interface/icon/Icon_warrior_pressed.png" type="Texture" id=26]
+[ext_resource path="res://Graphics/interface/chest_open.png" type="Texture" id=27]
+[ext_resource path="res://Graphics/interface/icon/Icon_ranger_pressed.png" type="Texture" id=28]
+[ext_resource path="res://Graphics/interface/Vie_Portal/Barre_vie_Portal_red.png" type="Texture" id=29]
+[ext_resource path="res://Graphics/interface/Vie_Portal/Vie_Portal_blue.png" type="Texture" id=30]
+[ext_resource path="res://Graphics/Décors/terre_brut.png" type="Texture" id=31]
+[ext_resource path="res://Graphics/interface/card_bat.png" type="Texture" id=32]
+[ext_resource path="res://Graphics/interface/card_ranger.png" type="Texture" id=33]
+[ext_resource path="res://Graphics/interface/lvl_up_background.png" type="Texture" id=34]
+[ext_resource path="res://Graphics/interface/card_spearman.png" type="Texture" id=35]
+[ext_resource path="res://Graphics/interface/card_warrior.png" type="Texture" id=36]
+[ext_resource path="res://Graphics/interface/card_eye.png" type="Texture" id=37]
+[ext_resource path="res://Graphics/interface/card_magic/fire/card_fire.png" type="Texture" id=38]
+[ext_resource path="res://Graphics/interface/card_homing_missile.png" type="Texture" id=39]
+[ext_resource path="res://Graphics/interface/card_magic/frost/card_frostCopy_Frame1.png" type="Texture" id=40]
+[ext_resource path="res://Graphics/interface/card_magic/Shield/card_shield.png" type="Texture" id=41]
+[ext_resource path="res://Graphics/interface/card_magic/Shield/card_mass_shield.png" type="Texture" id=42]
+[ext_resource path="res://Graphics/interface/card_magic/fireball/card_fireball.png" type="Texture" id=43]
+[ext_resource path="res://Graphics/interface/card_magic/frostball/card_frostballCopy_Frame1.png" type="Texture" id=44]
+[ext_resource path="res://Graphics/interface/card_perks/card_perk_bigger_shield.png" type="Texture" id=45]
+[ext_resource path="res://Graphics/interface/white.png" type="Texture" id=46]
+[ext_resource path="res://Graphics/interface/barre_exp.png" type="Texture" id=47]
+[ext_resource path="res://Graphics/Décors/Décor_new/grimoire.png" type="Texture" id=48]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 959.729, 236.724 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "hover"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -280 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "default",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "open",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "closed",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=5]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 29 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 36 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 37 ), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ExtResource( 38 ), ExtResource( 40 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 41 ), ExtResource( 42 ) ],
+"loop": false,
+"name": "monstres",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 39 ), ExtResource( 45 ) ],
+"loop": false,
+"name": "perks",
+"speed": 0.0
+} ]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 11 )
+
+[node name="grimoire" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="grimoire"]
+position = Vector2( 0, 280 )
+scale = Vector2( 12, 12 )
+texture = ExtResource( 48 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grimoire"]
+position = Vector2( 960.287, 1147.59 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="grimoire"]
+anims/hover = SubResource( 2 )
+
+[node name="Card_playing" type="Node2D" parent="."]
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="number_crystal" type="Sprite" parent="."]
+position = Vector2( 900, 100 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="number_l1" type="AnimatedSprite" parent="number_crystal"]
+position = Vector2( -17, -7.99983 )
+frames = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="number_l2" type="AnimatedSprite" parent="number_crystal"]
+position = Vector2( -6, -7.99983 )
+frames = SubResource( 3 )
+animation = "off"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="number_l3" type="AnimatedSprite" parent="number_crystal"]
+position = Vector2( 5, -7.99983 )
+frames = SubResource( 3 )
+animation = "off"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="chest" type="AnimatedSprite" parent="number_crystal"]
+position = Vector2( 50.6667, -8.33317 )
+frames = SubResource( 4 )
+animation = "closed"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="number_crystal/chest"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="number_crystal/chest/Area2D"]
+scale = Vector2( 1.6, 1.6 )
+shape = SubResource( 5 )
+
+[node name="icon_eye" type="AnimatedSprite" parent="number_crystal"]
+visible = false
+position = Vector2( -106, -1.2 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 6 )
+
+[node name="icon_bat" type="AnimatedSprite" parent="number_crystal"]
+visible = false
+position = Vector2( -140, -1.2 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 7 )
+
+[node name="icon_ranger" type="AnimatedSprite" parent="number_crystal"]
+visible = false
+position = Vector2( -174, -1.2 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 8 )
+
+[node name="icon_spear" type="AnimatedSprite" parent="number_crystal"]
+visible = false
+position = Vector2( -208, -1.2 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 9 )
+
+[node name="icon_warrior" type="AnimatedSprite" parent="number_crystal"]
+visible = false
+position = Vector2( -242, -1.2 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 10 )
+
+[node name="number_exp" type="Sprite" parent="number_crystal"]
+position = Vector2( 19.119, 20.7959 )
+texture = ExtResource( 47 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="exp_barre" type="TextureProgress" parent="number_crystal/number_exp"]
+show_behind_parent = true
+margin_left = -52.0309
+margin_top = -4.83272
+margin_right = 1.9691
+margin_bottom = 5.16728
+rect_scale = Vector2( 1.93, 1 )
+value = 70.0
+texture_under = ExtResource( 46 )
+texture_progress = ExtResource( 46 )
+tint_under = Color( 0.666667, 0.666667, 0.666667, 1 )
+tint_progress = Color( 0.866667, 0.247059, 0.247059, 1 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="exp_text" type="Label" parent="number_crystal/number_exp"]
+margin_left = -20.7799
+margin_top = 14.2662
+margin_right = 20.2201
+margin_bottom = 28.2662
+text = "   /100"
+align = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="life_portal_red" type="AnimatedSprite" parent="."]
+position = Vector2( 276, 208 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 11 )
+
+[node name="life" type="TextureProgress" parent="life_portal_red"]
+margin_left = -55.0
+margin_top = -16.4
+margin_right = 55.0
+margin_bottom = 15.6
+value = 100.0
+texture_progress = ExtResource( 19 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="life_portal_blue" type="AnimatedSprite" parent="."]
+position = Vector2( 1642.01, 210 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 12 )
+
+[node name="life" type="TextureProgress" parent="life_portal_blue"]
+margin_left = -54.8
+margin_top = -15.8
+margin_right = 55.2
+margin_bottom = 16.2
+value = 100.0
+texture_progress = ExtResource( 30 )
+fill_mode = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Mana_pool" type="TextureProgress" parent="."]
+margin_left = 1741.44
+margin_top = 457.194
+margin_right = 1872.44
+margin_bottom = 677.194
+value = 30.0
+texture_under = ExtResource( 31 )
+texture_progress = ExtResource( 13 )
+fill_mode = 3
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lvl_up" type="Sprite" parent="."]
+visible = false
+position = Vector2( 972.476, 360.336 )
+texture = ExtResource( 34 )
+
+[node name="lvl_up_img" type="Sprite" parent="lvl_up"]
+position = Vector2( -15.8453, 56.1178 )
+scale = Vector2( 4.5, 4.5 )
+texture = ExtResource( 34 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="unlock_1" type="AnimatedSprite" parent="lvl_up"]
+position = Vector2( -234.944, -3.73398 )
+frames = SubResource( 13 )
+animation = "monstres"
+speed_scale = 0.0
+
+[node name="Button_unlock_1" type="Button" parent="lvl_up/unlock_1"]
+show_behind_parent = true
+margin_left = -44.0
+margin_top = -55.0
+margin_right = 44.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="unlock_2" type="AnimatedSprite" parent="lvl_up"]
+position = Vector2( -14.1755, -2.54477 )
+frames = SubResource( 13 )
+animation = "monstres"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Button_unlock_2" type="Button" parent="lvl_up/unlock_2"]
+show_behind_parent = true
+margin_left = -44.0
+margin_top = -55.0
+margin_right = 44.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="unlock_3" type="AnimatedSprite" parent="lvl_up"]
+position = Vector2( 208.764, 1.45853 )
+frames = SubResource( 13 )
+animation = "monstres"
+
+[node name="Button_unlock_3" type="Button" parent="lvl_up/unlock_3"]
+show_behind_parent = true
+margin_left = -44.0
+margin_top = -55.0
+margin_right = 44.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="perk_1" type="AnimatedSprite" parent="lvl_up"]
+position = Vector2( -236.442, 149.093 )
+frames = SubResource( 13 )
+animation = "perks"
+speed_scale = 0.0
+
+[node name="Button_perk_1" type="Button" parent="lvl_up/perk_1"]
+show_behind_parent = true
+margin_left = -44.0
+margin_top = -55.0
+margin_right = 44.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="perk_2" type="AnimatedSprite" parent="lvl_up"]
+position = Vector2( -15.6738, 150.283 )
+frames = SubResource( 13 )
+animation = "perks"
+
+[node name="Button_perk_2" type="Button" parent="lvl_up/perk_2"]
+show_behind_parent = true
+margin_left = -44.0
+margin_top = -55.0
+margin_right = 44.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="perk_3" type="AnimatedSprite" parent="lvl_up"]
+position = Vector2( 210.262, 150.23 )
+frames = SubResource( 13 )
+animation = "perks"
+
+[node name="Button_perk_3" type="Button" parent="lvl_up/perk_3"]
+show_behind_parent = true
+margin_left = -44.0
+margin_top = -55.0
+margin_right = 44.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="grimoire" to="." method="_on_grimoire_mouse_entered"]
+[connection signal="mouse_exited" from="grimoire" to="." method="_on_grimoire_mouse_exited"]
+[connection signal="mouse_entered" from="number_crystal/chest/Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="number_crystal/chest/Area2D" to="." method="_on_Area2D_mouse_exited"]
+[connection signal="pressed" from="lvl_up/unlock_1/Button_unlock_1" to="." method="_on_Button_unlock_1_pressed"]
+[connection signal="pressed" from="lvl_up/unlock_2/Button_unlock_2" to="." method="_on_Button_unlock_2_pressed"]
+[connection signal="pressed" from="lvl_up/unlock_3/Button_unlock_3" to="." method="_on_Button_unlock_3_pressed"]
+[connection signal="pressed" from="lvl_up/perk_1/Button_perk_1" to="." method="_on_Button_perk_1_pressed"]
+[connection signal="pressed" from="lvl_up/perk_2/Button_perk_2" to="." method="_on_Button_perk_2_pressed"]
+[connection signal="pressed" from="lvl_up/perk_3/Button_perk_3" to="." method="_on_Button_perk_3_pressed"]

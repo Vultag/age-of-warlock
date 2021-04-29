@@ -36,25 +36,25 @@ animations = [ {
 "name": "fireball",
 "speed": 0.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ) ],
-"loop": false,
-"name": "frostball",
-"speed": 0.0
-}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "frost",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 23 ) ],
-"loop": true,
-"name": "mass_shield",
-"speed": 5.0
+"frames": [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ) ],
+"loop": false,
+"name": "frostball",
+"speed": 0.0
 }, {
 "frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ],
 "loop": false,
 "name": "shield",
 "speed": 0.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "mass_shield",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
